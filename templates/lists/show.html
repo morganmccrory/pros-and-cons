@@ -1,0 +1,25 @@
+<h1>{{ list.name }}</h1>
+<br>
+<a href="{{ url_for('update_list', slug=list.slug) }}">Edit List</a>
+<br>
+<h4>Pros</h4>
+<ol>
+  {% for pro in list.pros %}
+    <li>{{ pro.body }}</li>
+  {% endfor %}
+</ol>
+<a href="{{ url_for('create_pro', slug=list.slug) }}">Add another pro</a>
+<h4>Cons</h4>
+<ol>
+  {% for con in list.cons %}
+    <li>{{ con.body }}</li>
+  {% endfor %}
+</ol>
+<a href="{{ url_for('create_con', slug=list.slug) }}">Add another con</a>
+<br><br><br><br>
+<form action="{{ url_for('delete_list', slug=list.slug) }}" method="POST">
+     <input type="hidden" name="_method" value="DELETE" />
+     <input type="submit" value="Delete" />
+</form>
+<br><br>
+<a href="/">Back</a>

@@ -1,0 +1,9 @@
+<form action="/lists/<slug>/pros/create" method="POST">
+  <label>Pro</label>
+  <input type="text" name="body">
+
+  <input type="hidden" name="slug" value={{ list.slug }}>
+
+  <input type="submit" value="Add">
+</form>
+<a href="/">Back</a>
