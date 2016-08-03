@@ -1,7 +1,9 @@
-<h2>Pros and Cons Lists</h2>
-<br>
-{% for list in lists %}
-  <h3><a href="{{ url_for('show_list', slug=list.slug) }}">{{ list.name }}</a></h3>
-{% endfor %}
-<br><br>
-<a href="/lists/create">Create new list</a>
+{% extends "base.html" %}
+{% block title %} - Home{% endblock %}
+{% block content %}
+{% if not session.logged_in %}
+     <p>You are not logged in.</p>
+{% else %}
+     <p>You are logged in.</p>
+{% endif %}
+{% endblock %}

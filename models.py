@@ -15,7 +15,7 @@ class Con(db.EmbeddedDocument):
 
 class List(db.Document):
   created_at = db.DateTimeField(default=datetime.datetime.now, required=True)
-  name = db.StringField(max_length=255, required=True)
+  name = db.StringField(max_length=255, required=True, unique=True)
   slug = db.StringField(unique=True)
   pros = db.ListField(db.EmbeddedDocumentField('Pro'))
   cons = db.ListField(db.EmbeddedDocumentField('Con'))

@@ -1,32 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    {% block head %}
+    <title>The Pros and Cons{% block title %}{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
     <meta charset="utf-8">
-    <title>Pros and Cons</title>
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
-    <style>.content {padding-top: 80px;}</style>
+
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='ico/favicon.ico') }}">
+    {% endblock %}
   </head>
-
   <body>
-
-    {%- block topbar -%}
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    {% block navbar %}
+    <div class="navbar navbar-static-top navbar-default">
       <div class="container">
-        <div class="navbar-header">
-          <h2>
-            <a href="/" class="brand">Pros and Cons</a>
-          </h2>
-        </div>
-      </div>
-    </nav>
-    {%- endblock -%}
-
-    <div class="container">
-      <div class="content">
-        {% block page_header %}{% endblock %}
-        {% content %}{% endblock %}
+        <button class="navbar-toggle">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">The Pros and Cons</a>
+        <div class="nav-collapse">
+          {% block navbar_right %}
+          <ul class="nav navbar-nav pull-right">
+            {% if not session.logged_in %}
+              <li><a href="#">Login or Signup</a></li>
+            {% else %}
+              <li><a href="#">Logout</a></li>
+            {% endif %}
+          </ul>
+          {% endblock %}
+        </div><!--/.nav-collapse -->
       </div>
     </div>
-    {% block js_footer %}{% endblock %}
+    {% endblock %}
+    <div class="container page">
+        <div class="content">
+          {% block content %}
+          {% endblock %}
+        </div>
+        <hr>
+        {% block footer %}
+        <footer class="footer">
+            <p>&copy; The Pros and Cons</p>
+        </footer>
+        {% endblock %}
+    </div>
+    {% block js_footer %}
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+      <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    {% endblock %}
   </body>
 </html>

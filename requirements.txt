@@ -1,0 +1,7 @@
+flask
+flask-script
+WTForms
+mongoengine
+flask_mongoengine
+flask_bootstrap
+python-slugifier

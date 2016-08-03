@@ -17,9 +17,8 @@ def create_list():
     return render_template("lists/new.html")
   else:
     name = request.form["name"]
-    slug = request.form["slug"]
 
-    list = List(name=name, slug=slug)
+    list = List(name=name)
     list.save()
 
     return redirect("/")
