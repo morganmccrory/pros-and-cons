@@ -1,11 +1,30 @@
-<h1>{{ list.name }}</h1>
-<a href="{{ url_for('update_list', slug=list.slug) }}">Edit List</a>
-<h4>Pros</h4>
-<ol>
-  {% for pro in list.pros %}
-    <li>{{ pro.body }}</li>
-  {% endfor %}
-</ol>
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="page-header">
+    <h3>{{ list.name }}</h3>
+    <div class="row">
+      <div class="col-sm-3"></div>
+      <div class="col-sm-3">
+        <h4>Pros</h4>
+        <ul>
+          {% for pro in list.pros %}
+            <li>{{ pro.body }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="col-sm-3">
+        <h4>Cons</h4>
+      </div>
+      <div class="col-sm-3"></div>
+    </div>
+  </div>
+
+  <a href="{{ url_for('update_list', slug=list.slug) }}">Edit List</a>
+{% endblock %}
+
+
+
 <a href="{{ url_for('create_pro', slug=list.slug) }}">Add another pro</a>
 <h4>Cons</h4>
 <ol>

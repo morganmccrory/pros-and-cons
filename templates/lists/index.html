@@ -1,9 +1,14 @@
 {% extends "base.html" %}
+
 {% block title %} - Home{% endblock %}
-{% block content %}
-{% if not session.logged_in %}
-     <p>You are not logged in.</p>
-{% else %}
-     <p>You are logged in.</p>
-{% endif %}
-{% endblock %}
+  {% block content %}
+    {% for list in lists %}
+      <div class="page-header">
+        <h4>
+          <small>Existing Pro and Con Lists</small><br><br>
+          <a href="{{ url_for('show_list', slug=list.slug) }}">{{ list.name }}</a>
+        </h4>
+      </div>
+    {% endfor %}
+    <a href="/lists/create">Create new list</a>
+  {% endblock %}

@@ -10,7 +10,7 @@
     <meta charset="utf-8">
 
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="shortcut icon" href="{{ url_for('static', filename='ico/favicon.ico') }}">
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
     {% endblock %}
   </head>
   <body>
@@ -26,11 +26,7 @@
         <div class="nav-collapse">
           {% block navbar_right %}
           <ul class="nav navbar-nav pull-right">
-            {% if not session.logged_in %}
-              <li><a href="#">Login or Signup</a></li>
-            {% else %}
-              <li><a href="#">Logout</a></li>
-            {% endif %}
+            <li><a href="#">To help you make better decisions.</a></li>
           </ul>
           {% endblock %}
         </div><!--/.nav-collapse -->
