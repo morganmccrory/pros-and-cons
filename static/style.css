@@ -25,3 +25,19 @@ ul li {
   font-family: inherit;
   font-size: inherit;
 }
+
+ol li {
+  text-align: left;
+}
+
+.edit-page {
+  padding-left: 1em;
+}
+
+.glyphicon-remove {
+  color: #d9534f;
+}
+
+.glyphicon-pencil {
+  color: #337ab7;
+}
