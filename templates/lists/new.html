@@ -1,7 +1,12 @@
-<form action="/lists/create" method="POST">
-  <label>Name</label>
-  <input type="text" name="name">
+{% extends "base.html" %}
 
-  <input type="submit" value="Create">
-</form>
-<a href="/">Back</a>
+{% block content %}
+  <div class="col-xs-3">
+  </div>
+  <form action="/lists/create" method="POST">
+    <div class="col-xs-5">
+        <input type="text" name="name" placeholder="List Name (ie. Should I move to Seattle?)" class="form-control">
+    </div>
+    <input type="submit" value="Create" class="btn btn-primary">
+  </form>
+{% endblock %}

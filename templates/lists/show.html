@@ -12,30 +12,35 @@
             <li>{{ pro.body }}</li>
           {% endfor %}
         </ul>
+        <form action="/lists/<slug>/pros/create" method="POST" class="form-inline">
+          <div class="form-group">
+            <input type="text" name="body" class="form-control" placeholder="Add another pro">
+            <input type="hidden" name="slug" value={{ list.slug }}>
+          </div>
+          <input type="submit" value="Add" class="btn btn-primary">
+        </form>
       </div>
       <div class="col-sm-3">
         <h4>Cons</h4>
+        <ul>
+          {% for con in list.cons %}
+            <li>{{ con.body }}</li>
+          {% endfor %}
+        </ul>
+        <form action="/lists/<slug>/cons/create" method="POST" class="form-inline">
+          <div class="form-group">
+            <input type="text" name="body" class="form-control" placeholder="Add another con">
+            <input type="hidden" name="slug" value={{ list.slug }}>
+          </div>
+          <input type="submit" value="Add" class="btn btn-primary">
+        </form>
       </div>
       <div class="col-sm-3"></div>
     </div>
   </div>
 
   <a href="{{ url_for('update_list', slug=list.slug) }}">Edit List</a>
+  <form action="{{ url_for('delete_list', slug=list.slug) }}" method="POST">
+    <button type="submit" name="_method" value="DELETE" class="btn-link" onclick="return confirm('Are you sure you want to delete this item?');">Delete List</button>
+  </form>
 {% endblock %}
-
-
-
-<a href="{{ url_for('create_pro', slug=list.slug) }}">Add another pro</a>
-<h4>Cons</h4>
-<ol>
-  {% for con in list.cons %}
-    <li>{{ con.body }}</li>
-  {% endfor %}
-</ol>
-<a href="{{ url_for('create_con', slug=list.slug) }}">Add another con</a>
-<br><br><br><br>
-<form action="{{ url_for('delete_list', slug=list.slug) }}" method="POST">
-     <input type="hidden" name="_method" value="DELETE" />
-     <input type="submit" value="Delete" />
-</form>
-<a href="/">Back</a>

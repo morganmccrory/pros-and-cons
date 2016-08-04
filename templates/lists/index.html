@@ -2,13 +2,13 @@
 
 {% block title %} - Home{% endblock %}
   {% block content %}
-    {% for list in lists %}
-      <div class="page-header">
-        <h4>
-          <small>Existing Pro and Con Lists</small><br><br>
-          <a href="{{ url_for('show_list', slug=list.slug) }}">{{ list.name }}</a>
-        </h4>
-      </div>
-    {% endfor %}
+    <div class="page-header">
+      <h4>
+        <small>Existing Pro and Con Lists</small><br><br>
+        {% for list in lists %}
+          <a href="{{ url_for('show_list', slug=list.slug) }}">{{ list.name }}</a><br><br>
+        {% endfor %}
+      </h4>
+    </div>
     <a href="/lists/create">Create new list</a>
   {% endblock %}

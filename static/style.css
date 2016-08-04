@@ -6,6 +6,22 @@
   text-align: center;
 }
 
+ul {
+  padding: 0;
+}
+
 ul li {
   list-style-type: none;
+}
+
+.btn-link {
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+  color: #428bca;
+  padding: 0;
+  text-decoration: none;
+  font-family: inherit;
+  font-size: inherit;
 }
